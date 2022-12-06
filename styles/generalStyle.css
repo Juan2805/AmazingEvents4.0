@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* NAV STYLE ------------------------------------------- */
+
+.nav_section_one {
+    background-color: rgb(143, 141, 141);
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    border-bottom: solid 2px rgb(66, 65, 65);
+}
+
+.logo_container {
+    height: 80px;
+    margin: auto 1em;
+}
+
+.logo {
+    height: 100%;
+    width: 100%;
+}
+
+.nav_buttons_container{
+    display: flex;
+    justify-content: space-between;
+    margin: auto 1em;
+}
+
+.nav_buttons {
+    font-size: 1em;
+    text-decoration: none;
+    width: 140px;
+    padding: .2em;
+    margin: .5em;
+    border: solid 2px rgb(66, 65, 65);
+    background-color: rgb(224, 220, 220);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_section_two {
+    background-color: rgb(175, 168, 168);
+    text-align: center;
+    height: 130px;
+    display: flex;
+    border-bottom: solid 2px rgb(66, 65, 65);
+}
+
+.nav_title {
+    margin: auto;
+    font-size: 5em;
+}
+
+.arrow_container {
+    height: 50px;
+    width: 50px;
+    margin: auto 50px;
+}
+
+.arrow_left, .arrow_right {
+    height: 100%;
+    width: 100%;
+}
+
+.arrow_left {
+    transform: rotate(180deg);
+}
+
+/* FOOTER --------------------------------------------- */
+
+footer {
+    background-color: rgb(175, 168, 168);
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: solid 2px rgb(66, 65, 65);
+    margin-top: auto;
+}
+
+.footer_link{
+    background-color: black;
+    padding: 5px;
+    border-radius: 50%;
+    margin: 0 20px;
+}
+
+.footer_cohort {
+    font-size: 30px;
+    margin: 0 80px;
+}
+
+/* RESPONSIVE ---------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    /* NAV STYLE ------------------------------------------- */
+    .nav_section_one {
+        height: 80px;
+    }
+
+    .logo_container {
+        height: 50px;
+        margin: auto 1em;
+    }
+
+    .nav_buttons {
+        font-size: 0.7em;
+        width: 90px;
+        padding: .2em;
+        margin: .2em;
+    }
+
+    .nav_section_two {
+        height: 90px;
+    }
+
+    .nav_title {
+        font-size: 3em;
+    }
+
+    .arrow_container {
+        height: 30px;
+        width: 30px;
+        margin: auto 30px;
+    }
+
+    /* FOOTER --------------------------------------------- */
+
+    footer {
+        height: 50px;
+    }
+
+    .footer_link{
+        padding: 5px;
+        margin: 0 10px;
+        height: 30px;
+    }
+
+    .footer_cohort {
+        font-size: 20px;
+        margin: 0 50px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+    /* NAV STYLE ------------------------------------------- */
+    .nav_section_one {
+        flex-direction: column;
+        height: 120px;
+    }
+    
+    .logo_container {
+        height: 60px;
+        margin: .5em;
+    }
+    
+    .nav_buttons_container{
+        margin: auto .2em;
+    }
+    
+    .nav_buttons {
+        font-size: .6em;
+    }
+    
+    .nav_section_two {
+        height: 60px;
+    }
+    
+    .nav_title {
+        font-size: 2em;
+    }
+    
+    .arrow_container {
+        height: 20px;
+        width: 20px;
+        margin: auto 20px;
+    }
+
+    /* FOOTER --------------------------------------------- */
+
+    footer {
+        height: 50px;
+    }
+
+    .footer_link{
+        padding: 3px;
+        height: 25px;
+        margin: 0 5px;
+    }
+
+    .footer_cohort {
+        font-size: 20px;
+        margin: 0 40px;
+    }
+}
+
+@media (max-width: 479px) {
+
+    /* NAV STYLE ------------------------------------------- */
+    .nav_section_one {
+        flex-direction: column;
+        height: 120px;
+    }
+
+    .logo_container {
+        height: 60px;
+        margin: .5em;
+    }
+
+    .nav_buttons_container{
+        margin: auto 0;
+    }
+
+    .nav_buttons {
+        font-size: .5em;
+    }
+
+    .nav_section_two {
+        height: 40px;
+    }
+    
+    .nav_title {
+        font-size: 1.2em;
+    }
+    
+    .arrow_container {
+        height: 15px;
+        width: 15px;
+        margin: auto 10px;
+    }
+
+    /* FOOTER --------------------------------------------- */
+
+    footer {
+        height: 50px;
+    }
+
+    .footer_link{
+        padding: 3px;
+        height: 25px;
+        margin: 0 5px;
+    }
+
+    .footer_cohort {
+        font-size: 15px;
+        margin: 0 30px;
+    }
+}
+
+/* @media (min-height: 768px) {
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+} */

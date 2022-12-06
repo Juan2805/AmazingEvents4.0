@@ -1,0 +1,75 @@
+.stats_table {
+    width: 90%;
+    margin: 1em auto;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: rgb(143, 141, 141);
+    height: 40px;
+}
+
+th {
+    font-size: 1.5em;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.stats_table, th, tr, td {
+    border: solid 2px rgb(66, 65, 65);
+}
+
+td {
+    padding-left: 5px;
+}
+
+/* RESPONSIVE ---------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    thead {
+        height: 30px;
+    }
+    
+    th {
+        font-size: 1em;
+    }
+
+    td {
+        font-size: .8em;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+    thead {
+        height: 20px;
+    }
+    
+    th {
+        font-size: .8em;
+        padding-left: 2px;
+    }
+
+    td {
+        font-size: .5em;
+        padding-left: 2px;
+    }
+}
+
+@media (max-width: 479px) {
+
+    thead {
+        height: 20px;
+    }
+    
+    th {
+        font-size: .8em;
+        padding-left: 2px;
+    }
+
+    td {
+        font-size: .5em;
+        padding-left: 2px;
+    }
+}

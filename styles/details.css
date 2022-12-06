@@ -1,0 +1,96 @@
+.card_details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2em;
+    height: 450px;
+    width: 1000px;
+    margin: 70px auto;
+    padding: 40px;
+    border: solid 2px rgb(66, 65, 65);
+}
+
+.card_image {
+    width: 100%;
+    height: 100%;
+    border: solid 2px rgb(66, 65, 65);
+    box-shadow: rgba(0, 0, 0, 0.5) -14px 0px 50px, rgba(0, 0, 0, 0.5) 0px -10px 50px;
+}
+
+.detail_description {
+    border: solid 2px rgb(66, 65, 65);
+    padding: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card_title {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+/* RESPONSIVE ---------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .card_details {
+        column-gap: 1em;
+        height: 350px;
+        width: 700px;
+        margin: 50px auto;
+        padding: 30px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+    .card_details {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+        width: 450px;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .card_image {
+        margin-bottom: 1em;
+    }
+    
+    .detail_description {
+        padding: .8em;
+    }
+    
+    .card_title {
+        font-size: 1em;
+        margin-bottom: .8em;
+    }
+    
+}
+
+@media (max-width: 479px) {
+
+    .card_details {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+        width: 300px;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .card_image {
+        margin-bottom: 1em;
+    }
+    
+    .detail_description {
+        padding: .8em;
+    }
+    
+    .card_title {
+        font-size: 1em;
+        margin-bottom: .8em;
+    }
+    
+}
