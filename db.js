@@ -257,16 +257,22 @@ const tableRow = (content) => {
 // Function to start the render of the pages ----------------------------------------------------------------
 // Function to get the events and categories
 const getEvents = async (url) => {
-    let response = await fetch(url)
-    let dataEvents = await response.json()
-
-    // Iterate the events and separate them into categories (pastEvents and upcomingEvents)
-    // and add the categories of the events to the categories array if they are not already, with a boolean value
-    dataEvents.events.map(event => {
-        Date.parse(event.date) < Date.parse(dataEvents.currentDate) ? pastEvents.push(event) : upcomingEvents.push(event)
-        categories.find(category => category.name == event.category) ? null : categories.push({name: event.category, checked: false})
-    })
-    return dataEvents
+    let dataEvents
+    try {
+        let response = await fetch(url)
+        dataEvents = await response.json()
+        
+    } catch (error) {
+        alert("Sorry! Something went wrong")
+    } finally {
+        // Iterate the events and separate them into categories (pastEvents and upcomingEvents)
+        // and add the categories of the events to the categories array if they are not already, with a boolean value
+        dataEvents.events.map(event => {
+            Date.parse(event.date) < Date.parse(dataEvents.currentDate) ? pastEvents.push(event) : upcomingEvents.push(event)
+            categories.find(category => category.name == event.category) ? null : categories.push({name: event.category, checked: false})
+        })
+        return dataEvents
+    }
 }
 
 // Function to render the checkboxs, the cards and to add the events listeners
