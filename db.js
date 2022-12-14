@@ -1,180 +1,11 @@
-const data = {
-    fechaActual: "2022-01-01",
-    eventos: [
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Feriadecomidas7.jpg",
-            name: "Collectivities Party",
-            date: "2021-12-12",
-            description: "Enjoy your favourite dishes, from different countries, in a unique event for the whole family.",
-            category: "Food Fair",
-            place: "Room A",
-            capacity: 45000,
-            assistance: 42756,
-            price: 5,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Feriadecomidas2.jpg",
-            name: "Korean style",
-            date: "2021-08-12",
-            description: "Enjoy the best Korean dishes, with international chefs and awesome events.",
-            category: "Food Fair",
-            place: "Room A",
-            capacity: 45000,
-            assistance: 42756,
-            price: 10,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Salidaalmuseo5.jpg",
-            name: "Jurassic Park",
-            date: "2021-11-02",
-            description: "Let's go meet the biggest dinosaurs in the paleontology museum.",
-            category: "Museum",
-            place: "Field",
-            capacity: 82000,
-            assistance: 65892,
-            price: 15,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Salidaalmuseo1.jpg",
-            name: "Parisian Museum",
-            date: "2022-11-02",
-            description: "A unique tour in the city of lights, get to know one of the most iconic places.",
-            category: "Museum",
-            place: "Paris",
-            capacity: 8200,
-            estimate: 8200,
-            price: 3500,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Fiestadedisfraces2.jpg",
-            name: "Comicon",
-            date: "2021-02-12",
-            description: "For comic lovers, all your favourite characters gathered in one place.",
-            category: "Costume Party",
-            place: "Room C",
-            capacity: 120000,
-            assistance: 110000,
-            price: 54,
-            },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Fiestadedisfraces1.jpg",
-            name: "Halloween Night",
-            date: "2022-02-12",
-            description: "Come with your scariest costume and win incredible prizes.",
-            category: "Costume Party",
-            place: "Room C",
-            capacity: 12000,
-            estimate: 9000,
-            price: 12,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Conciertodemusica1.jpg",
-            name: "Metallica in concert",
-            date: "2022-01-22",
-            description: "The only concert of the most emblematic band in the world.",
-            category: "Music Concert",
-            place: "Room A",
-            capacity: 138000,
-            estimate: 138000,
-            price: 150,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Conciertodemusica2.jpg",
-            name: "Electronic Fest",
-            date: "2021-01-22",
-            description: "The best national and international DJs gathered in one place.",
-            category: "Music Concert",
-            place: "Room A",
-            capacity: 138000,
-            assistance: 110300,
-            price: 250,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Maraton3.jpg",
-            name: "10K for life",
-            date: "2021-03-01",
-            description: "Come and exercise, improve your health and lifestyle.",
-            category: "Race",
-            place: "Campo de FutbÃ³l",
-            capacity: 30000,
-            assistance: 25698,
-            price: 3,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Maraton1.jpg",
-            name: "15K NY",
-            date: "2021-03-01",
-            description: "We'll be raising funds for hospitals and medical care in this unique event held in The Big Apple.",
-            category: "Race",
-            place: "New York",
-            capacity: 3000000,
-            assistance: 2569800,
-            price: 3,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Libros7.jpg",
-            name: "School's book fair",
-            date: "2022-10-15",
-            description: "Bring your unused school book and take the one you need.",
-            category: "Book Exchange",
-            place: "Room D1",
-            capacity: 150000,
-            estimate: 123286,
-            price: 1,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Libros3.jpg",
-            name: "Just for your kitchen",
-            date: "2021-11-09",
-            description: "If you're a gastronomy lover come get the cookbook that best suits your taste and your family's.",
-            category: "Book Exchange",
-            place: "Room D6",
-            capacity: 130000,
-            assistance: 90000,
-            price: 100,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Cine3.jpg",
-            name: "Batman",
-            date: "2021-3-11",
-            description: "Come see Batman fight crime in Gotham City.",
-            category: "Cinema",
-            place: "Room D1",
-            capacity: 11000,
-            assistance: 9300,
-            price: 225,
-        },
-        {
-            image: "https://amazingeventsapi.herokuapp.com/api/img/Cine7.jpg",
-            name: "Avengers",
-            date: "2022-10-15",
-            description: "Marvel's Avengers Premier in 3d, the start of an epic saga with your favourite superheroes.",
-            category: "Cinema",
-            place: "Room D1",
-            capacity: 9000,
-            estimate: 9000,
-            price: 250,
-        },
-    ],
-};
-
+var allEvents = {}
 const upcomingEvents = []
 const pastEvents = []
 const categories = []
 var Input = {input: '', seted: false}
 var actualEvents
 var actualHref
-
-const getEvents = async () => {
-    
-}
-
-// Iterate the events and separate them into categories (pastEvents and upcomingEvents)
-// and add the categories of the events to the categories array if they are not already, with a boolean value
-data.eventos.map(event => {
-    Date.parse(event.date) < Date.parse(data.fechaActual) ? pastEvents.push(event) : upcomingEvents.push(event)
-    categories.find(category => category.name == event.category) ? null : categories.push({name: event.category, checked: false})
-})
+var actualSrc
 
 // Functions of the Search input --------------------------------------------------------------------------------------------------------
 const searchInput = () => {
@@ -209,7 +40,7 @@ const linksListener = () => {
     
     links.forEach(link => {
         link.addEventListener('click', () => {
-            data.eventos.map(evento => {
+            allEvents.events.map(evento => {
                 evento.name == link.id ? localStorage.setItem('myEvent', JSON.stringify(evento)) : null
             })
         })
@@ -237,9 +68,9 @@ const renderCategories = () => {
 
 // Function of the cards -----------------------------------------------------------------------------------------------------------------
 // Render of the card
-const card = (event,href) => {
+const card = (event) => {
     return `<div class="card" id="${event.name.replace(" ","_")}">
-                <img class="card-img-top card_img" src="${event.image}" alt="Card image cap">
+                <img class="card-img-top card_img" src=${actualSrc} alt="Card image cap">
                 <div class="card_body">
                     <div class="card_info">
                         <h5 class="card-title">${event.name}</h5>
@@ -248,18 +79,18 @@ const card = (event,href) => {
                     <div class="card_price_detail">
                         <p class="card_price">Price: $ ${event.price}</p>
                         <div class="card_button">
-                            <a href=${href} id="${event.name}" class="card_button_link">View Detail</a>
+                            <a href=${actualHref} id="${event.name}" class="card_button_link">View Detail</a>
                         </div>
                     </div>
                 </div>
             </div>`
-}
+}//${event.image}
 
 // Function to render all the cards
 const mapCards = () => {
     let cardContainer = document.querySelector('.cards_container')
     actualEvents.map(event => {
-        cardContainer.insertAdjacentHTML("beforeend", card(event,actualHref))
+        cardContainer.insertAdjacentHTML("beforeend", card(event))
     })
     let eventNotFoundContainer = document.querySelector('.event_not_found_container')
     eventNotFoundContainer.insertAdjacentHTML("beforeend", noResultsRender())
@@ -315,29 +146,7 @@ const noResultsRender = () => {
             </div>`
 }
 
-// Function to render the checkboxs, the cards and to add the events listeners
-const mainRender = (reRender,events,href) => {
-    reRender ? null : renderCategories()
-    actualEvents = events
-    actualHref = href
-    mapCards()
-    searchInput()
-    linksListener()
-}
-
-// Function to render the pages
-const renderPage = async (reRender) => {
-    let URLactual = window.location.pathname.split('/').pop()
-    
-    switch (URLactual) {
-        case '': mainRender(reRender,data.eventos,'./pages/details.html'); break;
-        case 'index.html': mainRender(reRender,data.eventos,'./pages/details.html'); break;
-        case 'upcomingEvents.html': mainRender(reRender,upcomingEvents,'../pages/details.html'); break;
-        case 'pastEvents.html': mainRender(reRender,pastEvents,'../pages/details.html'); break;
-        case 'details.html': await viewDetail();break;
-    }
-}
-
+// Details functions -------------------------------------------------------------------------------------
 // Get the event details from the localStorage 
 const viewDetail = async () => {
     let event = JSON.parse(localStorage.getItem('myEvent'))
@@ -353,6 +162,137 @@ const detailCard = (event) => {
                 <h5 class="card-title card_title">${event.name}</h5>
                 <p class="card-text">${event.description}</p>
             </div>`
+}
+
+// Stats Functions -----------------------------------------------------------------------------------------
+// Function to render all the statistics of the table
+const setStats = () => {
+    const eventsStatistics = document.querySelector('#events_statistics')
+    const upcomingEventsStatistics = document.querySelector('#upcoming_events_statistics')
+    const pastEventsStatistics = document.querySelector('#past_events_statistics')
+    let eventsAttendance = []
+
+    allEvents.events.map(event => {
+        let assistance = event.assistance || event.estimate
+        eventsAttendance.push({
+            name: event.name,
+            capacity: event.capacity,
+            assistance,
+            porcentage: Math.round((assistance / event.capacity) * 100)
+        })
+    })
+
+    let eventsToShow = Math.round(eventsAttendance.length / 10)
+    
+    let capacitySort = eventsSort(eventsAttendance,'capacity')
+    let largeCapacity = capacitySort.slice(0,eventsToShow)
+    let porcentageSort = eventsSort(eventsAttendance,'porcentage')
+    let highestPorcentage = porcentageSort.slice(0,eventsToShow)
+    let lowestPorcentage = porcentageSort.reverse().slice(0,eventsToShow)
+
+    for (let i = 0; i < eventsToShow; i++) {
+        eventsStatistics.insertAdjacentHTML('beforeend',
+        tableRow([
+            `${highestPorcentage[i].name} (${highestPorcentage[i].porcentage}%)`,
+            `${lowestPorcentage[i].name} (${lowestPorcentage[i].porcentage}%)`,
+            `${largeCapacity[i].name} (${largeCapacity[i].capacity})`
+        ]))
+    }
+
+    let allCategories = []
+
+    allEvents.events.map(event => {
+        let finded = allCategories.find(category => category == event.category)
+        !finded ? allCategories.push(event.category) : null
+    })
+    
+    categoryStats(allCategories,upcomingEventsStatistics,upcomingEvents)
+    categoryStats(allCategories,pastEventsStatistics,pastEvents)
+}
+
+// Function to render the sub-events stats
+const categoryStats = (allCategories,eventsContainer,events) => {
+    allCategories.map(category => {
+        let eventsPerCategory = []
+        let eventRevenues = 0
+        let eventAssistance = 0
+        let eventCapacity = 0
+
+        events.map(event => {
+            if (category == event.category) eventsPerCategory.push(event)
+        })
+
+        eventsPerCategory.map(event => {
+            let assistance = Number(event.assistance) || Number(event.estimate)
+            eventRevenues += event.price * assistance
+            eventAssistance += assistance
+            eventCapacity += Number(event.capacity)
+        })
+
+        let porcentage = ((eventAssistance/eventCapacity) * 100)
+        porcentage ? porcentage = porcentage.toFixed(2) : porcentage = 0
+
+        eventsContainer.insertAdjacentHTML('beforeend', tableRow([category,`$ ${eventRevenues}`,`${porcentage} %`]))
+    })
+}
+
+// Function to order the events by capacity or porcentage
+const eventsSort = (events,key) => {
+
+    events.sort((a,b) => {
+        return b[key] - a[key]
+    })
+    return events
+}
+
+// Function to render the row of the table
+const tableRow = (content) => {
+    return `<tr>
+                <td>${content[0]}</td>
+                <td>${content[1]}</td>
+                <td>${content[2]}</td>
+            </tr>`
+}
+
+// Function to start the render of the pages ----------------------------------------------------------------
+// Function to get the events and categories
+const getEvents = async (url) => {
+    let response = await fetch(url)
+    let dataEvents = await response.json()
+
+    // Iterate the events and separate them into categories (pastEvents and upcomingEvents)
+    // and add the categories of the events to the categories array if they are not already, with a boolean value
+    dataEvents.events.map(event => {
+        Date.parse(event.date) < Date.parse(dataEvents.currentDate) ? pastEvents.push(event) : upcomingEvents.push(event)
+        categories.find(category => category.name == event.category) ? null : categories.push({name: event.category, checked: false})
+    })
+    return dataEvents
+}
+
+// Function to render the checkboxs, the cards and to add the events listeners
+const mainRender = async (reRender,events,href,src) => {
+    reRender ? null : renderCategories()
+    actualEvents = events
+    actualHref = href
+    actualSrc = src
+    mapCards()
+    searchInput()
+    linksListener()
+    getEvents()
+}
+
+// Function to render the pages
+const renderPage = async (reRender) => {
+    let URLactual = window.location.pathname.split('/').pop()
+    
+    switch (URLactual) {
+        case '': allEvents = await getEvents('./events.json'); mainRender(reRender,allEvents.events,'./pages/details.html','./images/200w.gif'); break;
+        case 'index.html': allEvents = await getEvents('./events.json'); mainRender(reRender,allEvents.events,'./pages/details.html','./images/200w.gif'); break;
+        case 'upcomingEvents.html': allEvents = await getEvents('../events.json'); mainRender(reRender,upcomingEvents,'../pages/details.html','../images/200w.gif'); break;
+        case 'pastEvents.html': allEvents = await getEvents('../events.json'); mainRender(reRender,pastEvents,'../pages/details.html','../images/200w.gif'); break;
+        case 'details.html': await viewDetail();break;
+        case 'stats.html': allEvents = await getEvents('../events.json'); setStats(); break;
+    }
 }
 
 // Invoke the render function when the page is loaded
